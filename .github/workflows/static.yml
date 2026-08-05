@@ -35,6 +35,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Optional: set this repo secret once the agent Worker is deployed.
+          # Unset, the site falls back to its local knowledge base.
+          VITE_AGENT_ENDPOINT: ${{ secrets.VITE_AGENT_ENDPOINT }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
